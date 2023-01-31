@@ -1,0 +1,8 @@
+java_plugin(
+    name = "processor",
+    srcs = ["AnnotationProcessor.java"],
+    visibility = ["//visibility:public"],
+    deps = ["//api"],
+    processor_class = "processor.AnnotationProcessor",
+    generates_api = True,
+)

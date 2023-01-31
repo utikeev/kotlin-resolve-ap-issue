@@ -1,0 +1,14 @@
+load("@io_bazel_rules_kotlin//kotlin:core.bzl", "define_kt_toolchain", "kt_kotlinc_options")
+
+kt_kotlinc_options(
+    name = "kt_kotlinc_options",
+    x_jvm_default = "all",
+)
+
+define_kt_toolchain(
+    name = "kotlin_toolchain",
+    api_version = "1.7",
+    jvm_target = "17",
+    language_version = "1.7",
+    kotlinc_options = "//:kt_kotlinc_options",
+)

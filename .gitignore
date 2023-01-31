@@ -1,0 +1,4 @@
+bazel-bin
+bazel-kotlin-resolve-ap
+bazel-out
+bazel-testlogs

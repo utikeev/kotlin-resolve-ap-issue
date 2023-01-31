@@ -1,0 +1,24 @@
+load("@io_bazel_rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library", "kt_jvm_binary")
+
+kt_jvm_library(
+    name = "module",
+    srcs = glob(["*.kt", "*.java"]),
+    plugins = ["//processor"],
+    deps = [
+        "//api",
+    ],
+)
+
+java_binary(
+    name = "java-main",
+    srcs = ["JavaMain.java"],
+    deps = [":module"],
+    main_class = "module.JavaMain"
+)
+
+kt_jvm_binary(
+    name = "kt-main",
+    srcs = ["main.kt"],
+    deps = [":module"],
+    main_class = "module.MainKt",
+)
